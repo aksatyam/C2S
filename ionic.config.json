@@ -1,0 +1,8 @@
+{
+  "name": "C2S",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
