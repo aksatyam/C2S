@@ -1,0 +1,44 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding>
+  <div text-center>
+    <img src="https://lh3.googleusercontent.com/gWUIafjd1k1YFUwJsqp7LXAVyra94bKhIjMezVAEJo_s8NzmEJVAOn1L88Y0sGC-dvw=s180-rw">
+  </div>
+  <div>
+    <ion-item class="item-border">
+      <ion-label floating>
+        <ion-icon name="ios-call-outline" style="font-size:5vw;"></ion-icon>&nbsp;
+        Mobile No
+      </ion-label>
+      <ion-input type="number" [(ngModel)]="mobileno"></ion-input>
+    </ion-item>
+    <ion-item class="item-border">
+      <ion-label floating>
+        <ion-icon name="ios-lock-outline" style="font-size:5vw;"></ion-icon>&nbsp;
+        Password
+      </ion-label>
+      <ion-input type="number" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <button ion-button block class="btn_signin" (click)="signIn()">Sign in</button>
+  </div>
+  <ion-row>
+    <ion-col>
+      <span class="sighup_label" (click)="signUp()">
+        SignUp >>
+      </span>
+    </ion-col>
+    <ion-col>
+      <span class="forget_password" (click)="forgetPassword()">
+        Forget Password
+      </span>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
+<ion-footer>
+    <button ion-button block class="btn_loginwithUid" (click)="loginwithUID()">Login with UID</button>
+</ion-footer>

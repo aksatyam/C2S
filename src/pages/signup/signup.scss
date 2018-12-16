@@ -1,0 +1,73 @@
+page-signup {
+    background: black;
+    color: white;
+
+    .toolbar {
+        border: none;
+    }
+
+    .iconColors {
+        color: white;
+    }
+
+    .btn_icon {
+        color: white;
+        border: 1px solid white;
+        border-radius: 50%;
+    }
+
+    .toolbar-background {
+        background: black;
+        color: white;
+    }
+
+    .toolbar-title-md, .toolbar-title-ios {
+        color: white;
+    }
+
+    .header-md::after {
+        bottom: 0px!important;
+        height: 0px!important;
+    }
+
+    .scroll-content {
+        background: black;
+        color: white;
+    }
+
+    .item-md, .item-ios {
+        padding-left: 8px;
+        background: black;
+        color: white;
+        border: 0px solid black;
+    }
+
+    .item-label-floating .text-input-md, .item-label-floating .text-input-ios {
+        margin-bottom: 6px;
+        margin-top: 6px;
+    } 
+
+    .item item-block item-md item-input item-label-floating input-has-value item-input-has-value input-has-focus item-input-has-focus,
+    .item item-block item-ios item-input item-label-floating input-has-value item-input-has-value input-has-focus item-input-has-focus,
+    {
+        color: white;
+        border: none;
+        border-color: none;
+    }
+
+    .padding-custom {
+        margin-top: 16px;
+        .item-inner{
+            padding-right:0px!important; 
+        }
+    }
+
+    .btn_signup  {
+        margin-top: 16px;
+        color: black;
+        background-color: yellow;  
+        font-weight: 700;
+        text-transform: none;
+    }
+}
+

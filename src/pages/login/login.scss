@@ -1,0 +1,62 @@
+page-login {
+    background: black;
+    color: white;
+
+    .scroll-content {
+        background: black;
+        color: white;
+
+        .item-md, .item-ios {
+            padding-left: 8px;
+            background: black;
+            color: white;
+            border: 0px solid black;
+        }
+
+        .item-label-floating .text-input-md, .item-label-floating .text-input-ios {
+            margin-bottom: 6px;
+            margin-top: 6px;
+        } 
+
+        .item item-block item-md item-input item-label-floating input-has-value item-input-has-value input-has-focus item-input-has-focus,
+        .item item-block item-ios item-input item-label-floating input-has-value item-input-has-value input-has-focus item-input-has-focus,
+        {
+            color: white;
+            border: none;
+            border-color: none;
+        }
+
+        .btn_signin  {
+            margin-top: 16px;
+            color: black;
+            background-color: yellow;  
+            font-weight: 700;
+            text-transform: none;
+        }
+
+        .forget_password{
+            float: right;
+            color: darkgray;
+        }
+
+        .sighup_label{
+            float: left;
+            color: yellow;
+            font-weight: 700;
+            font-size: 4.5vw; 
+        }   
+     }
+
+     ion-footer {
+        background: black;
+        color: white;
+        padding: 8px;
+     }
+}
+.btn_loginwithUid  {
+    margin-top: 16px;
+    color: black;
+    background-color: yellow;  
+    font-weight: 700;
+    text-transform: none;
+}
