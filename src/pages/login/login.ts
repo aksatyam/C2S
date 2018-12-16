@@ -1,3 +1,4 @@
+import { WebservicesProvider } from './../../providers/webservices/webservices';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -17,7 +18,7 @@ export class LoginPage {
   public mobileno: number;
   public password: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public apiServices: WebservicesProvider) {
   }
 
   ionViewDidLoad() {
@@ -25,7 +26,23 @@ export class LoginPage {
   }
 
   signIn() {
-    this.navCtrl.setRoot('HomePage');
+    if (this.mobileno != undefined && this.password != undefined ){
+      this.apiServices.presentLoading();
+      let data : {
+        mobile: this.mobileno,
+        password: null
+      }
+      this.apiServices.postLogin(data).then(res => {
+        this.apiServices.dismissLoading();
+        if(res['status'] == 0) {
+          this.navCtrl.push('HomePage', { data: res });
+        }
+      });
+    }
+    else {
+      alert('Check your Mobile no and Password');
+    }
+    
   }
 
   loginwithUID() {

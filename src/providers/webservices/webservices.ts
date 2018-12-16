@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import "rxjs/add/operator/map";
@@ -15,7 +15,7 @@ export class WebservicesProvider {
   public BASE_URL: string = ' http://staging.c2sbook.org/c2s/';
   public data: any;
 
-  constructor(public http: HttpClient, public loadingCtrl: LoadingController, public headers: HttpHeaders) {
+  constructor(public http: HttpClient, public loadingCtrl: LoadingController) {
     console.log('Hello WebservicesProvider Provider');
   }
 
@@ -33,7 +33,30 @@ export class WebservicesProvider {
   }
 
   postLogin(data) {
-    if (data == null) {
+    if (data && data['mobile'] == null) {
+      data = {
+        "byteImage":null,
+        "categoryId":null,
+        "dealId":null,
+        "deviceId":"5c0a774fe4b0c52289470a26",
+        "favouriteDealId":null,
+        "favouriteStoreId":null,
+        "language":"en",
+        "lat":"28.6295509",
+        "lon":"77.3769583",
+        "mobile":data['mobile'],
+        "password":data['password'],
+        "pwd":"puarsVPRq/Ps83aRv4m3/Q==",
+        "requestType":0,
+        "role":null,
+        "userCategory":null,
+        "userDistance":0.0,
+        "userId":null,
+        "userNotification":false,
+        "venderId":null
+      }
+    }
+    else {
       data = {
         "byteImage":null,
         "categoryId":null,
@@ -57,12 +80,14 @@ export class WebservicesProvider {
       }
     }
     let url = `${this.BASE_URL}user/rest/login`;
-    this.http.post(url, data).subscribe(res => {
-      return res;
-    }, err => {
-      return err;
+    return new Promise(resolve => {
+      this.http.post(url, data).subscribe(res => {
+        this.data = res
+        resolve(this.data);
+      }, err => {
+        resolve(err);
+      })
     })
-
   }
 
 }
