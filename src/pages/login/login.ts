@@ -30,7 +30,7 @@ export class LoginPage {
       this.apiServices.presentLoading();
       let data = {
         mobile: this.mobileno,
-        password: null
+        password: this.password
       }
       this.apiServices.postLogin(data).then(res => {
         this.apiServices.dismissLoading();

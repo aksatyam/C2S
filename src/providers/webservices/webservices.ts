@@ -33,7 +33,7 @@ export class WebservicesProvider {
   }
 
   postLogin(data) {
-    if (data && data['mobile'] == null) {
+    if (data == null) {
       data = {
         "byteImage":null,
         "categoryId":null,
@@ -44,8 +44,8 @@ export class WebservicesProvider {
         "language":"en",
         "lat":"28.6295509",
         "lon":"77.3769583",
-        "mobile":data['mobile'],
-        "password":data['password'],
+        "mobile":"8285604315",
+        "password":null,
         "pwd":"puarsVPRq/Ps83aRv4m3/Q==",
         "requestType":0,
         "role":null,
@@ -67,8 +67,8 @@ export class WebservicesProvider {
         "language":"en",
         "lat":"28.6295509",
         "lon":"77.3769583",
-        "mobile":"8285604315",
-        "password":null,
+        "mobile":data['mobile'],
+        "password":data['password'],
         "pwd":"puarsVPRq/Ps83aRv4m3/Q==",
         "requestType":0,
         "role":null,
