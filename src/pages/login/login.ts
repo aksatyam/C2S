@@ -28,7 +28,7 @@ export class LoginPage {
   signIn() {
     if (this.mobileno != undefined && this.password != undefined ){
       this.apiServices.presentLoading();
-      let data : {
+      let data = {
         mobile: this.mobileno,
         password: null
       }
