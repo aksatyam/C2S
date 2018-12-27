@@ -34,8 +34,11 @@ export class LoginPage {
       }
       this.apiServices.postLogin(data).then(res => {
         this.apiServices.dismissLoading();
-        if(res['status'] == 0) {
+        if(res['status'] == 0 && !res['headers']) {
           this.navCtrl.push('HomePage', { data: res });
+        }
+        else {
+          console.log(res);
         }
       });
     }

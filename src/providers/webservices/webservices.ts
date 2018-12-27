@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoadingController } from 'ionic-angular';
 import "rxjs/add/operator/map";
@@ -12,11 +12,18 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class WebservicesProvider {
   public loading: any;
-  public BASE_URL: string = ' http://staging.c2sbook.org/c2s/';
+  public BASE_URL: string = 'http://staging.c2sbook.org/c2s/';
   public data: any;
-
+  public headers: any;
+  public options: any;
   constructor(public http: HttpClient, public loadingCtrl: LoadingController) {
     console.log('Hello WebservicesProvider Provider');
+
+    this.headers = new HttpHeaders();
+    this.headers.append('Access-Control-Allow-Origin' , '*');
+    this.headers.append('Access-Control-Allow-Headers', 'content-type');
+    this.headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT');
+    this.headers.append('Content-Type','application/json');
   }
 
   presentLoading() {
@@ -33,7 +40,7 @@ export class WebservicesProvider {
   }
 
   postLogin(data) {
-    if (data && data['mobile'] == null) {
+    if (data && data['mobile'] != null) {
       data = {
         "byteImage":null,
         "categoryId":null,
@@ -81,10 +88,11 @@ export class WebservicesProvider {
     }
     let url = `${this.BASE_URL}user/rest/login`;
     return new Promise(resolve => {
-      this.http.post(url, data).subscribe(res => {
+      this.http.post(url, data, { headers: this.headers}).subscribe(res => {
         this.data = res
         resolve(this.data);
       }, err => {
+        console.log(err);
         resolve(err);
       })
     })
